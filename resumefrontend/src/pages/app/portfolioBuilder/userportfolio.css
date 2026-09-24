@@ -1,0 +1,178 @@
+/* --- Gallery Layout --- */
+.pb-gallery-wrapper {
+    min-height: 100vh;
+    background-color: #f8fafc; /* Slightly cleaner off-white */
+    padding: 40px 8%;
+    font-family: 'Inter', sans-serif;
+}
+
+.pb-gallery-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.pb-main-title {
+    font-size: 2.5rem;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.pb-sub-title {
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+.pb-cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+}
+
+
+.pb-no-data-msg {
+    width: 100%;
+    text-align: center;
+    padding: 40px;
+    color: #64748b;
+    font-style: italic;
+    font-size: 1rem;
+    border: 1px dashed #e2e8f0;
+    border-radius: 20px;
+    background: #fdfdfd;
+}
+
+/* --- Portfolio Card --- */
+.pb-card {
+    width: 320px;
+    background: white;
+    border-radius: 20px;
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.pb-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* --- Iframe Preview Container --- */
+.pb-preview-box {
+    width: 100%;
+    height: 380px;
+    background: #ffffff;
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #f1f5f9;
+}
+
+/* THE MAGIC: 
+   We set the iframe to a desktop width (1400px) 
+   and scale it down to ~0.22 to fit the 320px card.
+*/
+.pb-iframe-element {
+    width: 1400px; 
+    height: 2000px; 
+    border: none;
+    transform: scale(0.207); /* Adjust this until it fits perfectly */
+    transform-origin: 0 0;
+    pointer-events: none; /* Prevents scrolling/clicking inside the preview */
+    background: white;
+}
+
+/* This overlay prevents the iframe from intercepting mouse events */
+.pb-iframe-shield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* --- Card Details --- */
+.pb-card-info {
+    padding: 20px 5px 10px 5px;
+    text-align: center;
+}
+
+.pb-item-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pb-action-links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.pb-action-links a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4f46e5;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.pb-action-links a:hover {
+    background: #f5f3ff;
+    color: #4338ca;
+}
+
+.pb-sep {
+    color: #cbd5e1;
+    font-weight: 300;
+}
+
+/* --- Create New Card Styling --- */
+.pb-add-new-card {
+    border: 2px dashed #cbd5e1;
+    background: #f8fafc;
+}
+
+.pb-add-new-card:hover {
+    border-color: #4f46e5;
+    background: #ffffff;
+}
+
+.pb-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    height: 100%;
+}
+
+.pb-plus-icon {
+    color: #4f46e5;
+    font-size: 80px;
+    font-weight: 100;
+    margin: 0;
+}
+
+/* Hide scrollbars inside iframes for a cleaner look */
+.pb-iframe-element::-webkit-scrollbar {
+    display: none;
+}
+
+.pb-iframe-element > div {
+    width: 100%;
+    height: 100%;
+}
